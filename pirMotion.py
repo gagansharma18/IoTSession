@@ -11,7 +11,7 @@ previous_state = False
 current_state = False
 
 while True:
-    time.sleep(0.5)
+    time.sleep(1)
     previous_state = current_state
     current_state = GPIO.input(sensor)
     if current_state != previous_state:
