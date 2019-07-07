@@ -21,28 +21,28 @@ SleepTimeL = 2
 # main loop
 
 try:
-  GPIO.output(2, GPIO.LOW)
+  GPIO.output(5, GPIO.LOW)
   print "ONE"
   time.sleep(SleepTimeL); 
-  GPIO.output(3, GPIO.LOW)
+  GPIO.output(6, GPIO.LOW)
   print "TWO"
   time.sleep(SleepTimeL);  
-  GPIO.output(4, GPIO.LOW)
+  GPIO.output(13, GPIO.LOW)
   print "THREE"
   time.sleep(SleepTimeL);
-  GPIO.output(17, GPIO.LOW)
+  GPIO.output(19, GPIO.LOW)
   print "FOUR"
   time.sleep(SleepTimeL);
-  GPIO.output(27, GPIO.LOW)
+  GPIO.output(26, GPIO.LOW)
   print "FIVE"
   time.sleep(SleepTimeL);
-  GPIO.output(22, GPIO.LOW)
+  GPIO.output(16, GPIO.LOW)
   print "SIX"
   time.sleep(SleepTimeL);
-  GPIO.output(10, GPIO.LOW)
+  GPIO.output(20, GPIO.LOW)
   print "SEVEN"
   time.sleep(SleepTimeL);
-  GPIO.output(9, GPIO.LOW)
+  GPIO.output(21, GPIO.LOW)
   print "EIGHT"
   time.sleep(SleepTimeL);
   GPIO.cleanup()
