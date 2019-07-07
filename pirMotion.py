@@ -25,5 +25,5 @@ while True:
         else:
             GPIO.setup(relay, GPIO.OUT)
             GPIO.output(relay, GPIO.HIGH) # it means rlay off
-            print("NO MOTION IN %s SECONDS SO RELAY IS OFF",stayOnTime)
+            print("NO MOTION IN %s SECONDS SO RELAY IS OFF" % (stayOnTime))
         #print("GPIO pin %s is %s current state %s" % (sensor, new_state, current_state))
