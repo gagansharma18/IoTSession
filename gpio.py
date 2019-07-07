@@ -12,7 +12,7 @@ import sys
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-pinList = [0,5,6,13,19,26,20,21]
+pinList = [5,6,13,19,26,16,20,21]
 #GPIO number on Raspberry Pi 
 
 def turnon(NumGPIO, NumRelay):
