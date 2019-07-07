@@ -22,7 +22,7 @@ while True:
         if current_state:
             # GPIO.setup(relay, GPIO.OUT)
             # GPIO.output(relay, GPIO.LOW) # it means relay on
-            print("MOTION DETECTED! RELAY IS ON")
+            print("MOTION DETECTED! RELAYS GOING ON")
             for i in pinList: 
                 GPIO.setup(i, GPIO.OUT) 
                 GPIO.output(i, GPIO.LOW)
@@ -31,7 +31,7 @@ while True:
         else:
             # GPIO.setup(relay, GPIO.OUT)
             # GPIO.output(relay, GPIO.HIGH) # it means rlay off
-            print("NO MOTION IN %s SECONDS SO RELAY IS OFF" % (stayOnTime))
+            print("RELAYS GOING OFF")
             for i in pinList: 
                 GPIO.setup(i, GPIO.OUT) 
                 GPIO.output(i, GPIO.HIGH)
