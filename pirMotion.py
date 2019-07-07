@@ -3,8 +3,8 @@ import time
 
 sensor = 4
 relay = 5
-stayOnTime = 3 #seconds
-SleepTime = 1
+stayOnTime = 5 #seconds
+SleepTime = 0.2
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(sensor, GPIO.IN, GPIO.PUD_DOWN)
@@ -23,11 +23,11 @@ while True:
             # GPIO.setup(relay, GPIO.OUT)
             # GPIO.output(relay, GPIO.LOW) # it means relay on
             print("MOTION DETECTED! RELAY IS ON")
-            # time.sleep(stayOnTime)
             for i in pinList: 
                 GPIO.setup(i, GPIO.OUT) 
                 GPIO.output(i, GPIO.LOW)
                 time.sleep(SleepTime); 
+            time.sleep(stayOnTime)    
         else:
             # GPIO.setup(relay, GPIO.OUT)
             # GPIO.output(relay, GPIO.HIGH) # it means rlay off
