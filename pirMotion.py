@@ -20,10 +20,10 @@ while True:
         if current_state:
             GPIO.setup(relay, GPIO.OUT)
             GPIO.output(relay, GPIO.LOW) # it means relay on
-            print("RELAY IS ON")
+            print("MOTION DETECTED! RELAY IS ON")
             time.sleep(stayOnTime)
         else:
             GPIO.setup(relay, GPIO.OUT)
             GPIO.output(relay, GPIO.HIGH) # it means rlay off
-            print("RELAY IS OFF")
+            print("NO MOTION IN %s SECONDS SO RELAY IS OFF",stayOnTime)
         #print("GPIO pin %s is %s current state %s" % (sensor, new_state, current_state))
