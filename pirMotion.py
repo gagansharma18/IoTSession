@@ -1,22 +1,18 @@
 import RPi.GPIO as GPIO
 import time
 
-PIR_PIN = 4
-RELAY_PIN = 5
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(PIR_PIN, GPIO.IN)         #Read output from PIR motion sensor
-GPIO.setup(RELAY_PIN, GPIO.OUT)         #RELAY output pin
+sensor = 4
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(sensor, GPIO.IN, GPIO.PUD_DOWN)
+
+previous_state = False
+current_state = False
 
 while True:
-    i=GPIO.input(PIR_PIN)
-
-    if i==0:                 #When output from motion sensor is LOW
-        print "No intruders",i
-        GPIO.output(RELAY_PIN, 0)  #Turn OFF RELAY
-        time.sleep(0.1)
-
-    elif i==1:               #When output from motion sensor is HIGH
-        print "Intruder detected",i
-        GPIO.output(RELAY_PIN, 1)  #Turn ON RELAY
-        time.sleep(0.1)
+    time.sleep(0.1)
+    previous_state = current_state
+    current_state = GPIO.input(sensor)
+    if current_state != previous_state:
+        new_state = "HIGH" if current_state else "LOW"
+        print("GPIO pin %s is %s" % (sensor, new_state))
