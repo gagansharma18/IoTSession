@@ -18,8 +18,8 @@ while True:
         new_state = "HIGH" if current_state else "LOW"
         if current_state:
             GPIO.setup(relay, GPIO.OUT)
-            GPIO.output(relay, GPIO.HIGH)
+            GPIO.output(relay, GPIO.LOW)
         else:
             GPIO.setup(relay, GPIO.OUT)
-            GPIO.output(relay, GPIO.LOW)
+            GPIO.output(relay, GPIO.HIGH)
         print("GPIO pin %s is %s current state %s" % (sensor, new_state, current_state))
