@@ -5,9 +5,30 @@
 <link rel="stylesheet" href="styles/style.css" type="text/css"/>
 <script>
 var config = {
-    "devices":["light","tv","ac","fan","lamp","heater","room light","kitchen light"],
-    "onCommands":["turn on *","turn on the *","* on"],
-    "offCommands":["turn off *","turn off the *","* off"],
+    //DEVICES BY INDEX 0 = relay1, INDEX 7 = relay8
+    //* is the device name place in command
+    "devices":[
+        "light",
+        "tv",
+        "ac",
+        "fan",
+        "lamp",
+        "heater",
+        "room light",
+        "kitchen light"
+    ],
+    "onCommands":[
+        "turn on *",
+        "turn on the *",
+        "switch on *",
+        "switch on the *"
+    ],
+    "offCommands":[
+        "turn off *",
+        "turn off the *",
+        "switch off *",
+        "switch off the *"
+    ],
     "debug":false
 }
 </script>

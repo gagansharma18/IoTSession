@@ -1,9 +1,3 @@
-// var config = {
-//     "devices":["light","tv","ac","fan","lamp","heater","room light","kitchen light"],
-//     "onCommands":["turn on *","turn on the *","* on"],
-//     "offCommands":["turn off *","turn off the *","* off"],
-//     "debug":false
-// }
 var socket = io();
 var JARVIS = new Artyom();
 window.onload = function(){
@@ -37,6 +31,9 @@ window.onload = function(){
             if(config.devices.indexOf(wildcard.trim()) != -1){
                 payload.device = config.devices.indexOf(wildcard.trim());
                 payload.state = (i >= 0 && i < config.onCommands.length) ? 0 : 1 ;
+                if(config.debug){
+                    console.log("payload",payload,"Device",config.devices[payload.device]);
+                }
                 socket.emit("command", payload); //send payload to JARVIS SERVER via WebSocket
                 JARVIS.say("Done!");
             }else{
