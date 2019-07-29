@@ -3,10 +3,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="scripts/libs/artyom.js"></script>
 <link rel="stylesheet" href="styles/style.css" type="text/css"/>
+<script>
+var config = {
+    "devices":["light","tv","ac","fan","lamp","heater","room light","kitchen light"],
+    "onCommands":["turn on *","turn on the *","* on"],
+    "offCommands":["turn off *","turn off the *","* off"],
+    "debug":false
+}
+</script>
 <body>
 <div id="recognise"></div>
 <button onclick="javascript:window.loadJarvis()">LOAD JARVIS</button>
 <script src="/socket.io/socket.io.js"></script>
-<script src="scripts/jarvisUI.js"></script>
+<script src="scripts/jarvisClient.js"></script>
 </body>
 </html>

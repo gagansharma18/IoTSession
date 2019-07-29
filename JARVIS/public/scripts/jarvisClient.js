@@ -1,8 +1,9 @@
-var config = {
-    "devices":["light","tv","ac","fan","lamp","heater","room light","kitchen light"],
-    "onCommands":["turn on *","turn on the *","* on"],
-    "offCommands":["turn off *","turn off the *","* off"]
-}
+// var config = {
+//     "devices":["light","tv","ac","fan","lamp","heater","room light","kitchen light"],
+//     "onCommands":["turn on *","turn on the *","* on"],
+//     "offCommands":["turn off *","turn off the *","* off"],
+//     "debug":false
+// }
 var socket = io();
 var JARVIS = new Artyom();
 window.onload = function(){
@@ -10,7 +11,7 @@ window.onload = function(){
         // Run "forever"
         continuous: true,
         lang:"en-GB",
-        debug:true,
+        debug:config.debug,
         mode:"normal",
         soundex:false,
         listen: true,
@@ -47,7 +48,6 @@ window.onload = function(){
     JARVIS.redirectRecognizedTextOutput((recognized,isFinal) => {
         if(isFinal){
             document.getElementById("recognise").innerHTML = recognized;
-            //console.log("REC",recognized);
         }
     });
 };
