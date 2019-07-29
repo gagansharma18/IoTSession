@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 
 sensor = 4
-relay = 5
+#relay = 5
 stayOnTime = 10 #seconds
 SleepTime = 0.1
 

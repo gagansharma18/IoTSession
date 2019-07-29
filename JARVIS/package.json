@@ -1,0 +1,14 @@
+{
+    "name": "jarvis",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {
+      "start": "nodemon JARVIS.js"
+    },
+    "author": "Gagan",
+    "license": "ISC",
+    "dependencies": {
+      "express": "^4.17.1",
+      "socket.io": "^2.2.0"
+    }
+  }
