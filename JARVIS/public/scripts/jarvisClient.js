@@ -46,8 +46,9 @@ window.onload = function(){
     });
 
     JARVIS.redirectRecognizedTextOutput((recognized,isFinal) => {
-        if(isFinal){
-            document.getElementById("recognise").innerHTML = recognized;
-        }
+        document.getElementById("recognise").innerHTML = recognized;
+        // if(isFinal){
+        //     document.getElementById("recognise").innerHTML = recognized;
+        // }
     });
 };
