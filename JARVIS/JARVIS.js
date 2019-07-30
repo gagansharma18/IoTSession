@@ -23,7 +23,7 @@ const server = https.createServer( options, app );
 /* HTTP END */
 
 server.listen( port, () => {
-    console.log( 'JARVIS server listening on port ' + server.address().port );
+    console.log( `JARVIS server listening on port ${server.address().port}`);
 } );
 var io = require('socket.io')(server); //require socket.io module and pass the http object (server)
 
@@ -36,20 +36,20 @@ pins.forEach((pin) => {
    
 //RESET ALL DEVICES
 Relays.forEach((relay) => {
-    relay.digitalWrite(0); 
+    relay.digitalWrite(1); //1 means off here 
 });
 
 io.sockets.on('connection', function (socket) {// Web Socket Connection
     socket.on('command', function(data) { //get payload from client
         console.log(data);
-        Relays[data.device].digitalWrite(1);
+        Relays[data.device].digitalWrite(!data.state);
     });
 });
 
 process.on('SIGINT', function () { //on ctrl+c
     //RESET ALL DEVICES
     Relays.forEach((relay) => {
-        relay.digitalWrite(0); 
+        relay.digitalWrite(1); //1 means off here
     });
     process.exit(); //exit completely
 });

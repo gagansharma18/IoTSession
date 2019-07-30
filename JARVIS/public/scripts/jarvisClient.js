@@ -3,7 +3,7 @@ var JARVIS = new Artyom();
 window.onload = function(){
     JARVIS.initialize({
         // Run "forever"
-        continuous: true,
+        continuous: false,
         lang:"en-GB",
         debug:config.debug,
         mode:"normal",
