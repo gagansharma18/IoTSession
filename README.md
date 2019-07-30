@@ -17,7 +17,7 @@ $ python3 gpio.py openall
 $ python3 gpio.py get (to info all of channel turn on or off)
 
 
-#Blynk mobile app
+# Blynk mobile app
 
 Raspberry Pi
 1.Connect your Raspberry Pi to the Internet and open it’s console.
@@ -40,3 +40,13 @@ Raspberry Pi
 
  node full_path_to_your_script.js <Auth Token>
 
+
+# JARVIS
+```
+openssl genrsa -out localhost.key 2048
+openssl req -new -x509 -key localhost.key -out localhost.cert -days 3650 -subj /CN=localhost
+```
+```
+npm install
+npm start
+```
