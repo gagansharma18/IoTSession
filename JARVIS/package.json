@@ -1,14 +1,28 @@
 {
-    "name": "jarvis",
-    "version": "1.0.0",
-    "description": "",
-    "scripts": {
-      "start": "node JARVIS.js"
-    },
-    "author": "Gagan",
-    "license": "ISC",
-    "dependencies": {
-      "express": "^4.17.1",
-      "socket.io": "^2.2.0"
-    }
-  }
+  "name": "J.A.R.V.I.S.",
+  "version": "1.0.0",
+  "description": "Small IOT project using RaspberryPI",
+  "scripts": {
+    "start": "node JARVIS.js"
+  },
+  "author": "Gagan",
+  "license": "GPL",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.2.0"
+  },
+  "main": "JARVIS.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gagansharma18/IoTSession/tree/master/JARVIS"
+  },
+  "keywords": [
+    "JARVIS",
+    "RaspberryPI",
+    "IoT",
+    "Relay",
+    "Voice",
+    "command"
+  ]
+}
