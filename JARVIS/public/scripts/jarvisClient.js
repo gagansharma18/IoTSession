@@ -3,7 +3,7 @@ var JARVIS = new Artyom();
 window.onload = function(){
     JARVIS.initialize({
         // Run "forever"
-        continuous: false,
+        continuous: true,
         lang:"en-GB",
         debug:config.debug,
         mode:"normal",
@@ -35,6 +35,7 @@ window.onload = function(){
                     console.log("payload",payload,"Device",config.devices[payload.device]);
                 }
                 socket.emit("command", payload); //send payload to JARVIS SERVER via WebSocket
+                $(`ons-switch:eq( ${payload.device} )`).get( 0 ).checked = payload.state;
                 JARVIS.say("Done!");
             }else{
                 JARVIS.say("I don't know what is " + wildcard);
