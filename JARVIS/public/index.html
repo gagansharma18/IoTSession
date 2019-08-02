@@ -2,7 +2,10 @@
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="scripts/libs/artyom.js"></script>
-<link rel="stylesheet" href="styles/style.css" type="text/css"/>
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+<link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+<script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+<script src="https://unpkg.com/jquery/dist/jquery.min.js"></script>
 <script>
 var config = {
     //DEVICES BY INDEX 0 = relay1, INDEX 7 = relay8
@@ -33,9 +36,46 @@ var config = {
 }
 </script>
 <body>
-<div id="recognise"></div>
-<button onclick="javascript:window.loadJarvis()">LOAD JARVIS</button>
+
+<ons-page>
+    <ons-toolbar>
+      <div class="center">J.A.R.V.I.S.</div>
+    </ons-toolbar>
+        <ons-list-title><div></div><ons-button onclick="javascript:window.loadJarvis()">LOAD</ons-button></div></ons-list-title>
+    <ons-list>
+      <ons-list-header>
+          <div style="text-align: center" id="recognise"></div>
+        </ons-list-header>
+    </ons-list>
+  </ons-page>
+
 <script src="/socket.io/socket.io.js"></script>
 <script src="scripts/jarvisClient.js"></script>
+<script>
+ $(function(){
+      // Initialization code
+      config.devices.forEach(function(value,index){
+        $('ons-list').append(`
+            <ons-list-item>
+                <div class="center">
+                    ${value.toUpperCase()}
+                </div>
+                <div class="right">
+                    <ons-switch data-index="${index}"></ons-switch>
+                </div>
+            </ons-list-item>
+        `)
+      });
+      $("ons-switch").click(function(e){
+       let payload={
+                "state":this.checked ? 1 : 0,
+                "device":parseInt($(this).attr("data-index"))
+            }
+        socket.emit("command", payload);
+      });
+      //ons.platform.select("android");
+    });
+</script>
+
 </body>
 </html>
