@@ -50,3 +50,9 @@ openssl req -new -x509 -key localhost.key -out localhost.cert -days 3650 -subj /
 npm install
 npm start
 ```
+
+#NODE RED
+```
+node-red-start
+node-red-stop
+```
