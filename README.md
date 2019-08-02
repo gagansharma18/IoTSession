@@ -51,8 +51,11 @@ npm install
 npm start
 ```
 
-#NODE RED
+# NODE RED
 ```
 node-red-start
 node-red-stop
+
+# PINOUT
+https://pinout.xyz/pinout/pin12_gpio18
 ```
