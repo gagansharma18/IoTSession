@@ -3,7 +3,7 @@ import time
 
 sensor = 4
 #relay = 5
-stayOnTime = 10 #seconds
+stayOnTime = 5 #seconds
 SleepTime = 0.1
 
 GPIO.setmode(GPIO.BCM)

@@ -42,7 +42,10 @@ Raspberry Pi
 
 
 # JARVIS
+
+Before start you have to create key and cert file for local https connection from the device you're running the server
 ```
+cd IoTSession/JARVIS/localhostkeys
 openssl genrsa -out localhost.key 2048
 openssl req -new -x509 -key localhost.key -out localhost.cert -days 3650 -subj /CN=localhost
 ```
