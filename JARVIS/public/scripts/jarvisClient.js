@@ -35,8 +35,16 @@ window.onload = function(){
                     console.log("payload",payload,"Device",config.devices[payload.device]);
                 }
                 socket.emit("command", payload); //send payload to JARVIS SERVER via WebSocket
-                $(`ons-switch:eq( ${payload.device} )`).get( 0 ).checked = payload.state;
-                JARVIS.say("Done!");
+
+                let device_switch = $(`ons-switch:eq( ${payload.device} )`).get(0);
+                let device_state = (payload.state)?"on":"off";
+                if(device_switch.checked != payload.state){ //Checking if device is already on
+                    device_switch.checked = payload.state;
+                    JARVIS.say("Done!");
+                }else{
+                    JARVIS.say(wildcard + " is alrady " +device_state);
+                }
+                
             }else{
                 JARVIS.say("I don't know what is " + wildcard);
             }
