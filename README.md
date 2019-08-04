@@ -109,3 +109,10 @@ cd ~/.node-red
 npm install node-red-node-pi-neopixel
 node-red-start
 ```
+
+#REMOTE.IT
+```
+    sudo apt-get update
+    sudo apt-get install connectd
+    sudo connectd_installer
+```
