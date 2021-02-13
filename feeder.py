@@ -1,33 +1,30 @@
-import time, sys
+import time,sys #,signal
 import RPi.GPIO as GPIO
 
-relay = 12  #GPIO.BOARD format
-delay = 20
-        
-def start(pin):
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(pin, GPIO.OUT)
-    GPIO.output(pin, GPIO.HIGH)
-    time.sleep(delay)
-    GPIO.output(pin, GPIO.LOW)
-    
-def stop(pin):
-    GPIO.setmode(GPIO.BOARD)
-    GPIO.setup(pin, GPIO.OUT)
-    GPIO.output(pin, GPIO.LOW)
-       
-print("""use command start or stop""")
+relay = 8  #GPIO.BOARD format
+delay = float(sys.argv[1]) if  len(sys.argv) > 1 else 3
 
+# def catch_ctrl_C(sig,frame):
+#    print ("Not gonna quit !!")
+
+# signal.signal(signal.SIGINT, catch_ctrl_C)
+
+def start(pin):
+    GPIO.setwarnings(False)
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.LOW)
+    time.sleep(delay)
+    GPIO.output(pin, GPIO.HIGH)
+    GPIO.cleanup()
+       
 def main():
-    while True:
-        cmd = raw_input("-->")
-        if cmd == "start":
-            start(relay)
-        elif cmd == "stop":
-            stop(relay)
-        else:
-            print("Not a valid command")
-            
-    return
+    try:
+        print("Auto Started! Feeder is running for {} secs".format(delay))
+        start(relay)
+        
+    except KeyboardInterrupt:
+        print("Manually exited!")
+        GPIO.cleanup()
 
 main()
